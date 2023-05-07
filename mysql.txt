@@ -1,0 +1,436 @@
+DROP DATABASE IF EXISTS atp;
+CREATE DATABASE atp;
+USE atp;
+
+DROP TABLE IF EXISTS tempCountry;
+CREATE TABLE tempCountry (
+    id varchar(2),
+    name varchar(50)
+);
+INSERT INTO tempCountry VALUES
+('AD', 'Andorra'),
+('AE', 'United Arab Emirates'),
+('AF', 'Afghanistan'),
+('AG', 'Antigua and Barbuda'),
+('AI', 'Anguilla'),
+('AL', 'Albania'),
+('AM', 'Armenia'),
+('AO', 'Angola'),
+('AQ', 'Antarctica'),
+('AR', 'Argentina'),
+('AS', 'American Samoa'),
+('AT', 'Austria'),
+('AU', 'Australia'),
+('AW', 'Aruba'),
+('AX', 'Åland Islands'),
+('AZ', 'Azerbaijan'),
+('BA', 'Bosnia and Herzegovina'),
+('BB', 'Barbados'),
+('BD', 'Bangladesh'),
+('BE', 'Belgium'),
+('BF', 'Burkina Faso'),
+('BG', 'Bulgaria'),
+('BH', 'Bahrain'),
+('BI', 'Burundi'),
+('BJ', 'Benin'),
+('BL', 'Saint Barthélemy'),
+('BM', 'Bermuda'),
+('BN', 'Brunei Darussalam'),
+('BO', 'Bolivia, Plurinational State of'),
+('BQ', 'Bonaire, Sint Eustatius and Saba'),
+('BR', 'Brazil'),
+('BS', 'Bahamas'),
+('BT', 'Bhutan'),
+('BV', 'Bouvet Island'),
+('BW', 'Botswana'),
+('BY', 'Belarus'),
+('BZ', 'Belize'),
+('CA', 'Canada'),
+('CC', 'Cocos (Keeling) Islands'),
+('CD', 'Congo, the Democratic Republic of the'),
+('CF', 'Central African Republic'),
+('CG', 'Congo'),
+('CH', 'Switzerland'),
+('CI', 'Côte d\'Ivoire'),
+('CK', 'Cook Islands'),
+('CL', 'Chile'),
+('CM', 'Cameroon'),
+('CN', 'China'),
+('CO', 'Colombia'),
+('CR', 'Costa Rica'),
+('CU', 'Cuba'),
+('CV', 'Cape Verde'),
+('CW', 'Curaçao'),
+('CX', 'Christmas Island'),
+('CY', 'Cyprus'),
+('CZ', 'Czech Republic'),
+('DE', 'Germany'),
+('DJ', 'Djibouti'),
+('DK', 'Denmark'),
+('DM', 'Dominica'),
+('DO', 'Dominican Republic'),
+('DZ', 'Algeria'),
+('EC', 'Ecuador'),
+('EE', 'Estonia'),
+('EG', 'Egypt'),
+('EH', 'Western Sahara'),
+('ER', 'Eritrea'),
+('ES', 'Spain'),
+('ET', 'Ethiopia'),
+('FI', 'Finland'),
+('FJ', 'Fiji'),
+('FK', 'Falkland Islands (Malvinas)'),
+('FM', 'Micronesia, Federated States of'),
+('FO', 'Faroe Islands'),
+('FR', 'France'),
+('GA', 'Gabon'),
+('GB', 'United Kingdom'),
+('GD', 'Grenada'),
+('GE', 'Georgia'),
+('GF', 'French Guiana'),
+('GG', 'Guernsey'),
+('GH', 'Ghana'),
+('GI', 'Gibraltar'),
+('GL', 'Greenland'),
+('GM', 'Gambia'),
+('GN', 'Guinea'),
+('GP', 'Guadeloupe'),
+('GQ', 'Equatorial Guinea'),
+('GR', 'Greece'),
+('GS', 'South Georgia and the South Sandwich Islands'),
+('GT', 'Guatemala'),
+('GU', 'Guam'),
+('GW', 'Guinea-Bissau'),
+('GY', 'Guyana'),
+('HK', 'Hong Kong'),
+('HM', 'Heard Island and McDonald Islands'),
+('HN', 'Honduras'),
+('HR', 'Croatia'),
+('HT', 'Haiti'),
+('HU', 'Hungary'),
+('ID', 'Indonesia'),
+('IE', 'Ireland'),
+('IL', 'Israel'),
+('IM', 'Isle of Man'),
+('IN', 'India'),
+('IO', 'British Indian Ocean Territory'),
+('IQ', 'Iraq'),
+('IR', 'Iran, Islamic Republic of'),
+('IS', 'Iceland'),
+('IT', 'Italy'),
+('JE', 'Jersey'),
+('JM', 'Jamaica'),
+('JO', 'Jordan'),
+('JP', 'Japan'),
+('KE', 'Kenya'),
+('KG', 'Kyrgyzstan'),
+('KH', 'Cambodia'),
+('KI', 'Kiribati'),
+('KM', 'Comoros'),
+('KN', 'Saint Kitts and Nevis'),
+('KP', 'Korea, Democratic People\'s Republic of'),
+('KR', 'Korea, Republic of'),
+('KW', 'Kuwait'),
+('KY', 'Cayman Islands'),
+('KZ', 'Kazakhstan'),
+('LA', 'Lao People\'s Democratic Republic'),
+('LB', 'Lebanon'),
+('LC', 'Saint Lucia'),
+('LI', 'Liechtenstein'),
+('LK', 'Sri Lanka'),
+('LR', 'Liberia'),
+('LS', 'Lesotho'),
+('LT', 'Lithuania'),
+('LU', 'Luxembourg'),
+('LV', 'Latvia'),
+('LY', 'Libya'),
+('MA', 'Morocco'),
+('MC', 'Monaco'),
+('MD', 'Moldova, Republic of'),
+('ME', 'Montenegro'),
+('MF', 'Saint Martin (French part)'),
+('MG', 'Madagascar'),
+('MH', 'Marshall Islands'),
+('MK', 'Macedonia, the Former Yugoslav Republic of'),
+('ML', 'Mali'),
+('MM', 'Myanmar'),
+('MN', 'Mongolia'),
+('MO', 'Macao'),
+('MP', 'Northern Mariana Islands'),
+('MQ', 'Martinique'),
+('MR', 'Mauritania'),
+('MS', 'Montserrat'),
+('MT', 'Malta'),
+('MU', 'Mauritius'),
+('MV', 'Maldives'),
+('MW', 'Malawi'),
+('MX', 'Mexico'),
+('MY', 'Malaysia'),
+('MZ', 'Mozambique'),
+('NA', 'Namibia'),
+('NC', 'New Caledonia'),
+('NE', 'Niger'),
+('NF', 'Norfolk Island'),
+('NG', 'Nigeria'),
+('NI', 'Nicaragua'),
+('NL', 'Netherlands'),
+('NO', 'Norway'),
+('NP', 'Nepal'),
+('NR', 'Nauru'),
+('NU', 'Niue'),
+('NZ', 'New Zealand'),
+('OM', 'Oman'),
+('PA', 'Panama'),
+('PE', 'Peru'),
+('PF', 'French Polynesia'),
+('PG', 'Papua New Guinea'),
+('PH', 'Philippines'),
+('PK', 'Pakistan'),
+('PL', 'Poland'),
+('PM', 'Saint Pierre and Miquelon'),
+('PN', 'Pitcairn'),
+('PR', 'Puerto Rico'),
+('PS', 'Palestine, State of'),
+('PT', 'Portugal'),
+('PW', 'Palau'),
+('PY', 'Paraguay'),
+('QA', 'Qatar'),
+('RE', 'Réunion'),
+('RO', 'Romania'),
+('RS', 'Serbia'),
+('RU', 'Russian Federation'),
+('RW', 'Rwanda'),
+('SA', 'Saudi Arabia'),
+('SB', 'Solomon Islands'),
+('SC', 'Seychelles'),
+('SD', 'Sudan'),
+('SE', 'Sweden'),
+('SG', 'Singapore'),
+('SH', 'Saint Helena, Ascension and Tristan da Cunha'),
+('SI', 'Slovenia'),
+('SJ', 'Svalbard and Jan Mayen'),
+('SK', 'Slovakia'),
+('SL', 'Sierra Leone'),
+('SM', 'San Marino'),
+('SN', 'Senegal'),
+('SO', 'Somalia'),
+('SR', 'Suriname'),
+('SS', 'South Sudan'),
+('ST', 'Sao Tome and Principe'),
+('SV', 'El Salvador'),
+('SX', 'Sint Maarten (Dutch part)'),
+('SY', 'Syrian Arab Republic'),
+('SZ', 'Swaziland'),
+('TC', 'Turks and Caicos Islands'),
+('TD', 'Chad'),
+('TF', 'French Southern Territories'),
+('TG', 'Togo'),
+('TH', 'Thailand'),
+('TJ', 'Tajikistan'),
+('TK', 'Tokelau'),
+('TL', 'Timor-Leste'),
+('TM', 'Turkmenistan'),
+('TN', 'Tunisia'),
+('TO', 'Tonga'),
+('TR', 'Turkey'),
+('TT', 'Trinidad and Tobago'),
+('TV', 'Tuvalu'),
+('TW', 'Taiwan, Province of China'),
+('TZ', 'Tanzania, United Republic of'),
+('UA', 'Ukraine'),
+('UG', 'Uganda'),
+('UM', 'United States Minor Outlying Islands'),
+('US', 'United States'),
+('UY', 'Uruguay'),
+('UZ', 'Uzbekistan'),
+('VA', 'Holy See (Vatican City State)'),
+('VC', 'Saint Vincent and the Grenadines'),
+('VE', 'Venezuela, Bolivarian Republic of'),
+('VG', 'Virgin Islands, British'),
+('VI', 'Virgin Islands, U.S.'),
+('VN', 'Viet Nam'),
+('VU', 'Vanuatu'),
+('WF', 'Wallis and Futuna'),
+('WS', 'Samoa'),
+('YE', 'Yemen'),
+('YT', 'Mayotte'),
+('ZA', 'South Africa'),
+('ZM', 'Zambia'),
+('ZW', 'Zimbabwe');
+ALTER TABLE tempCountry ADD country VARCHAR(255);
+UPDATE tempCountry SET country = TRIM(UPPER(REPLACE(REPLACE(name, '.', ''), '-', ' ')));
+
+DROP TABLE IF EXISTS tempTable;
+CREATE TABLE tempTable (
+    PlayerName varchar(50),
+    Born varchar(50),
+    Height varchar(10),
+    Hand varchar(50),
+    LinkPlayer varchar(200),
+    Tournament varchar(50),
+    Location varchar(100),
+    Date_ varchar(50),
+    Ground varchar(50),
+    Prize varchar(50),
+    GameRound varchar(50),
+    GameRank varchar(10),
+    Oponent varchar(50),
+    WL varchar(2),
+    Score varchar(50)
+);
+LOAD DATA INFILE 'C:/data/atp/atp_data.csv' IGNORE
+INTO TABLE tempTable 
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+UPDATE tempTable SET Tournament = CONCAT(Tournament, ' - ', Ground) WHERE Tournament = 'AUT V RSA 1RD' AND Date_ = '1996.02.05 - 1996.02.11' AND Location = 'South Africa';
+
+DROP TABLE IF EXISTS tempPlayer;
+CREATE TABLE tempPlayer AS
+SELECT DISTINCT
+    SUBSTRING_INDEX(SUBSTRING_INDEX(LOWER(LinkPlayer), '/', 7), '/', -1) AS id,
+    PlayerName AS name,
+    CASE
+    	WHEN Height = 'NA' THEN NULL
+    	WHEN CAST(Height AS UNSIGNED) < 130 THEN NULL
+	WHEN CAST(Height AS UNSIGNED) > 250 THEN NULL
+        ELSE CAST(Height AS UNSIGNED)
+    END height,
+    LOWER(LinkPlayer) url,
+    SUBSTRING_INDEX(UPPER(Hand), ',', 1) AS forehand,
+    SUBSTRING_INDEX(UPPER(Hand), ',', -1) AS backhand,
+    TRIM(UPPER(REPLACE(REPLACE(SUBSTRING_INDEX(Born, ',', 1), '.', ''), '-', ' '))) AS city,
+    TRIM(UPPER(REPLACE(REPLACE(SUBSTRING_INDEX(Born, ',', -1), '.', ''), '-', ' '))) AS country
+FROM tempTable;
+
+DROP TABLE IF EXISTS tempTournament;
+CREATE TABLE tempTournament AS
+SELECT DISTINCT
+    Tournament AS name,
+    Date_ AS dates,
+    Location AS location,
+    UPPER(Ground) AS ground,
+    REPLACE(Prize, '�', '$') AS prize,
+    TRIM(UPPER(REPLACE(REPLACE(SUBSTRING_INDEX(Location, ',', 1), '.', ''), '-', ' '))) AS city,
+    TRIM(UPPER(REPLACE(REPLACE(SUBSTRING_INDEX(Location, ',', -1), '.', ''), '-', ' '))) AS country,
+    CAST(REPLACE(SUBSTRING_INDEX(Date_, ' - ', 1), '.', '-') AS DATE) AS start_date,
+    CAST(REPLACE(SUBSTRING_INDEX(Date_, ' - ', -1), '.', '-') AS DATE) AS end_date
+FROM tempTable;
+
+DROP TABLE IF EXISTS tempCountryReplace;
+CREATE TABLE tempCountryReplace AS
+SELECT t.country, COUNT(*) nrows
+FROM (
+    SELECT country FROM tempTournament
+    UNION ALL
+    SELECT country FROM tempPlayer
+) t
+LEFT JOIN tempCountry c ON t.country = c.country
+WHERE c.country IS NULL
+GROUP BY t.country
+ORDER BY 2 DESC;
+
+ALTER TABLE tempCountryReplace ADD replace_country VARCHAR(255);
+UPDATE tempCountryReplace SET replace_country = 'UNITED STATES' WHERE country = 'USA';
+UPDATE tempCountryReplace SET replace_country = 'UNITED KINGDOM' WHERE country = 'GREAT BRITAIN';
+UPDATE tempCountryReplace SET replace_country = 'UNITED KINGDOM' WHERE country = 'ENGLAND';
+UPDATE tempCountryReplace SET replace_country = 'RUSSIAN FEDERATION' WHERE country = 'RUSSIA';
+UPDATE tempCountryReplace SET replace_country = 'VENEZUELA, BOLIVARIAN REPUBLIC OF' WHERE country = 'VENEZUELA';
+UPDATE tempCountryReplace SET replace_country = 'KOREA, REPUBLIC OF' WHERE country = 'KOREA';
+UPDATE tempCountryReplace SET replace_country = 'KOREA, REPUBLIC OF' WHERE country = 'SOUTH KOREA';
+UPDATE tempCountryReplace SET replace_country = 'BOSNIA AND HERZEGOVINA' WHERE country = 'BOSNIA &AMP; HERZEGOVINA';
+UPDATE tempCountryReplace SET replace_country = 'BOLIVIA, PLURINATIONAL STATE OF' WHERE country = 'BOLIVIA';
+UPDATE tempCountryReplace SET replace_country = 'IRAN, ISLAMIC REPUBLIC OF' WHERE country = 'IRAN';
+UPDATE tempCountryReplace SET replace_country = 'SLOVAKIA' WHERE country = 'SLOVAK REPUBLIC';
+UPDATE tempCountryReplace SET replace_country = 'TAIWAN, PROVINCE OF CHINA' WHERE country = 'CHINESE TAIPEI';
+UPDATE tempCountryReplace SET replace_country = 'VIET NAM' WHERE country = 'VIETNAM';
+UPDATE tempCountryReplace SET replace_country = 'UNITED ARAB EMIRATES' WHERE country = 'UAE';
+UPDATE tempCountryReplace SET replace_country = 'NETHERLANDS' WHERE country = 'THE NETHERLANDS';
+UPDATE tempCountryReplace SET replace_country = 'MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF' WHERE country = 'MACEDONIA';
+UPDATE tempCountryReplace SET replace_country = 'UNITED STATES' WHERE country = 'CA';
+UPDATE tempCountryReplace SET replace_country = 'UNITED STATES' WHERE country = 'NY';
+UPDATE tempCountryReplace SET replace_country = 'UNITED STATES' WHERE country = 'FL';
+UPDATE tempCountryReplace SET replace_country = 'UNITED STATES' WHERE country = 'NEW YORK';
+UPDATE tempCountryReplace SET replace_country = 'ARGENTINA' WHERE country = 'BUENOS AIRES';
+UPDATE tempCountryReplace SET replace_country = 'SPAIN' WHERE country = 'BARCELONA';
+UPDATE tempCountryReplace SET replace_country = 'UNITED KINGDOM' WHERE country = 'SCOTLAND';
+UPDATE tempCountryReplace SET replace_country = 'TAIWAN, PROVINCE OF CHINA' WHERE country = 'TAIPEI';
+UPDATE tempCountryReplace SET replace_country = 'TAIWAN, PROVINCE OF CHINA' WHERE country = 'TAIWAN';
+UPDATE tempCountryReplace SET replace_country = 'QATAR' WHERE country = 'DOHA';
+UPDATE tempCountryReplace SET replace_country = 'REUNION' WHERE country = 'REUNION ISLAND';
+UPDATE tempCountryReplace SET replace_country = 'BRAZIL' WHERE country = 'SALVADOR';
+UPDATE tempCountryReplace SET replace_country = 'MOLDOVA, REPUBLIC OF' WHERE country = 'MOLDOVA';
+UPDATE tempCountryReplace SET replace_country = 'RUSSIAN FEDERATION' WHERE country = 'MOSCOW';
+UPDATE tempCountryReplace SET replace_country = 'FRANCE' WHERE country = 'PARIS';
+UPDATE tempCountryReplace SET replace_country = 'CHILE' WHERE country = 'SANTIAGO';
+UPDATE tempCountryReplace SET replace_country = 'ECUADOR' WHERE country = 'GUAYAQUIL';
+UPDATE tempCountryReplace SET replace_country = 'BOSNIA AND HERZEGOVINA' WHERE country = 'BOSNIA HERZEGOVINA';
+
+DROP TABLE IF EXISTS tournament;
+CREATE TABLE tournament AS
+SELECT
+t.name,
+    t.dates,
+    t.location,
+    t.ground,
+    t.prize,
+    t.city,
+    t.start_date,
+    t.end_date,
+    c.id country
+FROM tempTournament t
+LEFT JOIN tempCountryReplace cr ON t.country = cr.country
+LEFT JOIN tempCountry c ON c.country = COALESCE(cr.replace_country, t.country);
+
+DROP TABLE IF EXISTS player;
+CREATE TABLE player AS
+SELECT
+	p.id,
+    p.name,
+    p.url,
+    p.height,
+    p.forehand,
+    p.backhand,
+    p.city,
+    c.id country
+FROM tempPlayer p
+LEFT JOIN tempCountryReplace cr ON p.country = cr.country
+LEFT JOIN tempCountry c ON c.country = COALESCE(cr.replace_country, p.country);
+
+DROP TABLE IF EXISTS country;
+CREATE TABLE country AS
+SELECT
+	id,
+    name
+FROM tempCountry;
+
+DROP TABLE IF EXISTS player_records;
+CREATE TABLE player_records AS
+SELECT DISTINCT
+    SUBSTRING_INDEX(SUBSTRING_INDEX(LinkPlayer, '/', 7), '/', -1) player,
+    Oponent oponent_name,
+    GameRank oponent_rank,
+    Tournament tournament,
+    Date_ tournament_dates,
+    Location tournament_location,
+    Ground ground,
+    GameRound round,
+    Score score,
+    WL win_lose
+FROM tempTable;
+
+ALTER TABLE country ADD PRIMARY KEY (id);
+ALTER TABLE player ADD PRIMARY KEY (id);
+ALTER TABLE tournament ADD PRIMARY KEY (name, dates, Location);
+
+ALTER TABLE player ADD FOREIGN KEY (country) REFERENCES country(id);
+ALTER TABLE tournament ADD FOREIGN KEY (country) REFERENCES country(id); 
+ALTER TABLE player_records ADD FOREIGN KEY (player) REFERENCES player(id);
+ALTER TABLE player_records ADD FOREIGN KEY (tournament, tournament_dates, tournament_location) REFERENCES tournament(name, dates, location);
+
+DROP TABLE IF EXISTS tempTable;
+DROP TABLE IF EXISTS tempTournament;
+DROP TABLE IF EXISTS tempCountry;
+DROP TABLE IF EXISTS tempPlayer;
+RENAME TABLE tempCountryReplace TO hist_country_replace;

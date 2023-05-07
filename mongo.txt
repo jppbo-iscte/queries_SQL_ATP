@@ -1,0 +1,1 @@
+mongoexport --db atp --collection atpplayers --type csv --fields PlayerName,Born,Height,Hand,LinkPlayer,Tournament,Location,Date,Ground,Prize,GameRound,GameRank,Oponent,WL,Score --out C:\data\atp\atp_data.csv
